@@ -7,7 +7,7 @@ tags: 기본 개념
 toc: true
 ---
 
-1 조합회로 (Combinational Logic)
+##1. 조합회로 (Combinational Logic)
 
 출력이 현재 입력에만 의존하는 회로.
 ex) 초인종을 누르는 순간 바로 소리가 울림

@@ -1,6 +1,6 @@
 
 # 📘 Blog Style Guide (Verilog & Digital Design Series)
-_Last updated: 2025-10-22 11:17:19 +0900_
+_Last updated: 2025-10-22
 
 ---
 

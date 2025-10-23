@@ -73,8 +73,8 @@ end
 
 이를 방지하려면 조합회로가 계산을 끝내는 시간에 맞춰 clock frequency를 설정해야 한다.
 
-critical path = 15ns → 최대 약 66MHz
-critical path = 10ns → 최대 약 100MHz
+    critical path = 15ns → 최대 약 66MHz
+    critical path = 10ns → 최대 약 100MHz
  
 
 critical path가 길어질수록 clock frequency를 느리게 잡아야 하고, 결국 칩 전체의 속도가 느려진다.

@@ -28,7 +28,7 @@ toc: true
 
 간단한 예제로 그림 1 카운터를 보도록 하자
 
-그림 1. counter
+![그림 1. counter](/assets/images/digital_logic/counter_update.png)
 
 ``` verilog
 always @ (posedge clk) begin
@@ -48,10 +48,11 @@ end
 칩의 최대 동작 주파수는 
 
 가장 긴 조합회로 경로(Critical Path)에 의해 결정된다.
-* Critical Path : 레지스터에서 나온 신호 혹은 입력된 신호가 조합회로를 거쳐 다음 레지스터에 안정적으로 입력되기까지의 경로
+
+    Critical Path : 레지스터에서 나온 신호 혹은 입력된 신호가 조합회로를 거쳐 다음 레지스터에 안정적으로 입력되기까지의 경로
 
 
-그림 2. Critical Path
+![그림 2. Critical Path](/assets/images/digital_logic/critical_path_up.png)
  
 
 실제 회로 설계에서는 조합회로와 순차회로를 거의 항상 함께 사용한다.
@@ -93,7 +94,7 @@ critical path가 길어질수록 clock frequency를 느리게 잡아야 하고, 
 예시로 다음 그림 3과 같은 순차회로와 조합회로로 이루어진 회로가 있다고 할 때,
 
 
-그림 3. Pipelining 적용 전
+![그림 3. Pipelining 적용 전](/assets/images/digital_logic/critical_path_01_up.png)
  
 
 조합회로들의 데이터 처리 시간을 계산하면 총 13ns가 걸린다.
@@ -102,7 +103,7 @@ critical path가 13ns라는 것이다.
 이렇게 되면 순차회로인 register에서 값을 캐치하려면 clock edge가 13ns 주기로 즉, 76.9MHz 로 동작해야한다.
 
 
-그림 4. Pipelining 적용 후
+![그림 4. Pipelining 적용 후](/assets/images/digital_logic/critical_pipe_up.png)
  
 
 그림 4 처럼 register를 조합회로 사이에 넣어주는 간단한 조치만으로 critical path가 13ns에서 8ns로 줄었다.

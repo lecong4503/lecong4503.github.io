@@ -45,11 +45,25 @@ end
 순차회로는 위 코드에서 결과를 저장하는 역할만 할 뿐이다.
 
 ## 2. 칩의 속도는 조합회로가 결정한다.
-칩의 최대 동작 주파수는 
 
-가장 긴 조합회로 경로(Critical Path)에 의해 결정된다.
+디지털 회로에서 "빠르다"는 것은 무엇일까?  
 
-    Critical Path : 레지스터에서 나온 신호 혹은 입력된 신호가 조합회로를 거쳐 다음 레지스터에 안정적으로 입력되기까지의 경로
+바로 높은 Clock Frequency로 동작하는 것이다.  
+
+그런데 Clock Frequency는 마음대로 높일 수 없다.  
+
+가장 느린 조합회로 경로가 계산을 끝낼 때까지 기다려야 하기 때문이다.  
+
+이 "가장 느린 경로"를 **Critical Path** 라고 부른다.  
+  
+### 2.1 Critical Path란?
+회로 안에는 수많은 조합회로 경로가 있다.
+
+그 중 가장 오래 걸리는 경로 가 있을 것이다.  
+
+바로 이것이 Critical Path 다.
+
+Critical Path는 신호가 조합회로를 거쳐 전달되는 경로 중 **지연시간이 가장 긴 경로** 를 말한다.
 
 
 ![그림 2. Critical Path](/assets/images/digital_logic/critical_path_up.png)
@@ -61,19 +75,21 @@ end
 
 각각 따로 쓸 수는 있지만, 정확한 동작을 위해서는 같이 써야 한다.
 
- 
+<br/>
 
 조합회로만 있으면? 계산은 되지만 데이터가 언제 나올지 알 수 없어서 불안정하다.
 
 순차회로만 있으면? 값을 저장하고 출력은 되지만 계산을 못 한다. 그래서 둘 다 필요하다.
 
- 
+<br/>
 
 그렇다면 왜 조합회로가 칩의 속도를 결정할까?
 
 순차회로는 clock edge를 감지하여 데이터를 저장하고 출력한다.
 
-이때 clock edge가 감지되었는데도 조합회로의 critical path가 너무 길어서 계산이 다 이루어지지 않았다면, 잘못된 값이 저장되고 출력된다.
+이때 clock edge가 감지되었는데도 조합회로의 critical path가 너무 길어서 계산이 다 이루어지지 않았다면,  
+
+잘못된 값이 저장되고 출력된다.
 
 이를 방지하려면 조합회로가 계산을 끝내는 시간에 맞춰 clock frequency를 설정해야 한다.
 
@@ -83,7 +99,7 @@ end
 
 critical path가 길어질수록 clock frequency를 느리게 잡아야 하고, 결국 칩 전체의 속도가 느려진다.
 
- 
+### 2.1 Pipelining으로 해결하기
 
 그렇다면 이 critical path가 길어지는 문제를 어떻게 해결할까?
 
@@ -106,14 +122,16 @@ critical path가 13ns라는 것이다.
 ![그림 4. Pipelining 적용 후](/assets/images/digital_logic/critical_pipe_up.png)
  
 
-그림 4 처럼 register를 조합회로 사이에 넣어주는 간단한 조치만으로 critical path가 13ns에서 8ns로 줄었다.
-이렇게 되면 clock frequency를 76.9MHz 에서 8ns 주기인 125MHz로 상승시킬 수 있게 되면서 전체 칩 속도가 향상된다.
+그림 4 처럼 register를 조합회로 사이에 넣어주는 간단한 조치만으로 critical path가 13ns에서 8ns로 줄었다.  
 
- 
+이렇게 되면 clock frequency를 76.9MHz 에서 8ns 주기인 125MHz로 상승시킬 수 있게 되면서 전체 칩 속도가 향상된다.  
+
 
 다만, pipelining을 적용하면 최종 계산 결과가 나오기까지 그림 3에서 걸린 1 클럭보다 늘어난 2 클럭이 걸리게 되어 지연시간(Latency)가 늘어난다는 단점이 있다.
 
-하지만 clock frequency 자체를 높일 수 있어 단위 시간당 더 많은 데이터를 처리할 수 있는 처리율(Throughput)은 월등히 높아진다. 회로설계시 이 Latency와 Throughput 사이의 Trade-off를 고려하여 최적의 pipeline을 결정해야 한다.
+하지만 clock frequency 자체를 높일 수 있어 단위 시간당 더 많은 데이터를 처리할 수 있는 처리율(Throughput)은 월등히 높아진다.  
+
+회로설계시 이 Latency와 Throughput 사이의 Trade-off를 고려하여 최적의 pipeline을 결정해야 한다.
 
  
 

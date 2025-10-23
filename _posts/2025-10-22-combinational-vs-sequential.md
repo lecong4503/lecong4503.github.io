@@ -99,7 +99,7 @@ Critical Path는 신호가 조합회로를 거쳐 전달되는 경로 중 **지�
 
 critical path가 길어질수록 clock frequency를 느리게 잡아야 하고, 결국 칩 전체의 속도가 느려진다.
 
-### 2.1 Pipelining으로 해결하기
+### 2.2 Pipelining으로 해결하기
 
 그렇다면 이 critical path가 길어지는 문제를 어떻게 해결할까?
 

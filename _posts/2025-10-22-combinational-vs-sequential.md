@@ -26,11 +26,14 @@ toc: true
 간단한 예제로 그림 1 카운터를 보도록 하자
 
 그림 1. counter
+
+``` verilog
 always @ (posedge clk) begin
 	...
     count <= count + 1;
 end
- 
+``` 
+
 여기서 '+1' 을 하는건 Adder 즉, 조합회로다.
 
 @ (posedge clk) 와 <= 는 순차회로 요소이지만, 실제 더하기 라는 연산은 조합회로에서 담당한다.
